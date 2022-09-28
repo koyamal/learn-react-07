@@ -10,9 +10,9 @@ export default function App() {
       })
       .catch((err) => console.log(err));
   };
-  const onClickUser1 = () => {
+  const onClickSelectedUser = (userId) => {
     axios
-      .get("https://jsonplaceholder.typicode.com/users?id=1")
+      .get(`https://jsonplaceholder.typicode.com/users?id=${userId}`)
       .then((res) => {
         console.log(res.data);
       })
@@ -21,7 +21,8 @@ export default function App() {
   return (
     <div className="App">
       <button onClick={onClickUsers}>users</button>
-      <button onClick={onClickUser1}>user(id=1)</button>
+      <br />
+      <button onClick={() => onClickSelectedUser(2)}>user(id)</button>
     </div>
   );
 }
